@@ -24,13 +24,20 @@ class Player
     #   binding.pry
     # end
 
+    # puts "Results of feel:"
+    # pp warrior.feel
+
+    dos = warrior.direction_of_stairs
+
+    puts "Direction of stairs: #{dos}"
+
     # binding.pry
 
-    puts "Results of feel:"
-    pp warrior.feel
+    if warrior.feel(dos).enemy?
+      warrior.attack! dos
+      return
+    end
 
-    puts "Direction of stairs: #{warrior.direction_of_stairs}"
-
-    warrior.walk! warrior.direction_of_stairs
+    warrior.walk! dos
   end
 end
